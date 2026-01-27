@@ -27,18 +27,3 @@ print(type(x))
 
 x = frozenset({"apple", "banana", "cherry"})
 print(type(x))
-
-x = True
-print(type(x))
-
-x = b"Hello"
-print(type(x))
-
-x = bytearray(5)
-print(type(x))
-
-x = memoryview(bytes (5))
-print(type(x))
-
-x = None
-print(type(x))
