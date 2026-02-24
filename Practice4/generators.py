@@ -1,27 +1,49 @@
-import datetime
+def square(x):
+    for i in range(1, x+1):
+        yield i**2
 
-current_date = datetime.datetime.now()
-new_date = current_date - datetime.timedelta(days = 5)
-print("Current date:", current_date.strftime("%Y-%m-%d"))
-print("Date after subtracting 5 days:", new_date.strftime("%Y-%m-%d"))
-
-
-yesterday = current_date - datetime.timedelta(days = 1)
-tomorrow = current_date + datetime.timedelta( days = 1)
-print("current date: ", current_date.strftime("%Y-%m-%d"))
-print("yesterday: ", yesterday.strftime("%Y-%m-%d"))
-print("tomorrow ", tomorrow.strftime("%Y-%m-%d"))
+n = square(int(input()))
+for i in n:
+    print (i, end = " ")
 
 
-#dropping microseconds from datetime
-no_microseconds = current_date.replace(microsecond=0)
-print("Datetime without microseconds:", no_microseconds)
+
+def evens(x):
+    for i in range(0, x+1):
+        if i % 2 == 0:
+            yield i
+
+n = evens(int(input()))
+for i in n:
+    print(i, end = ", ")
 
 
-#calculate two date difference in seconds
-date1_str = input("Enter first date (YYYY-MM-DD HH:MM:SS): ")
-date2_str = input("Enter second date (YYYY-MM-DD HH:MM:SS): ")
-date1 = datetime.strptime(date1_str, "%Y-%m-%d %H:%M:%S")
-date2 = datetime.strptime(date2_str, "%Y-%m-%d %H:%M:%S")
-diff = date2 - date1
-print("Difference in seconds:", diff.total_seconds())
+
+def div(x):
+    for i in range(0, x+1):
+        if i % 3 == 0 and i % 4 == 0:
+            yield i
+
+print(", ".join(map(str, div(int(input())))))
+
+
+
+def squares(a, b):
+    for i in range(a, b+1):
+        yield i**2
+
+a = int(input())
+b = int(input())
+
+for value in squares(a, b):
+    print(value)
+
+
+
+def func(x):
+    for i in range(x, -1, -1):
+        yield i
+
+n = int(input())
+for i in func(n):
+    print(i)
