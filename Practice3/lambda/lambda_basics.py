@@ -21,3 +21,24 @@ mydoubler = myfunc(2)
 mytripler = myfunc(3)
 print(mydoubler(11))
 print(mytripler(11))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def myF():
+  return lambda x: x + 10
+
+print(myF(4))
