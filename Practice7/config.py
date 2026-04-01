@@ -2,7 +2,7 @@ import os
 from configparser import ConfigParser
 
 
-def load_config(filename=r'C:\Users\Huawei\OneDrive\Desktop\practice_pp2\Practice7\database.ini', section='postgresql'):
+def load_config(filename=r'C:\Users\Huawei\OneDrive\Desktop\PracticePP2\Practice7\database.ini', section='postgresql'):
     parser = ConfigParser()
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
