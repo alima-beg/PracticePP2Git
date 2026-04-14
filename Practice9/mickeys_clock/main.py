@@ -3,7 +3,7 @@ import sys
 from clock import MickeyClock
 
 def main():
-    pygame.init()  # initialize all pygame modules (graphics, sound, etc.)
+    pygame.init()
 
     # create a square window (800x800) to match the clock design
     WIDTH, HEIGHT = 800, 800
@@ -13,7 +13,6 @@ def main():
     timer = pygame.time.Clock()  # clock object to control FPS (frame rate)
     running = True  # variable that controls the main loop
 
-    # main loop (game loop)
     while running:
         for event in pygame.event.get():  # check all user events
             if event.type == pygame.QUIT:  # if user clicks X button

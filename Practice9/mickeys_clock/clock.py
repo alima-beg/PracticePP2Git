@@ -1,17 +1,16 @@
 import pygame  # library for creating games and graphics
 import datetime  # module for getting current date and time
 import os  # module for working with file paths
-pygame.init()  # initialize all pygame modules
 
+pygame.init()
 screen = pygame.display.set_mode((1200, 700))  # create a window (width=1200, height=700)
-WHITE = (255, 255, 255)  # RGB color for white
+WHITE = (255, 255, 255)
 
-# path to the folder with images
 base = r'C:\Users\Huawei\OneDrive\Desktop\PracticePP2\Practice9\mickeys_clock\images'
 
 # load images with alpha channel (transparency support)
 image_surface = pygame.image.load(os.path.join(base, 'clock.png')).convert_alpha()
-mickey      = pygame.image.load(os.path.join(base, 'mUmrP.png')).convert_alpha()
+mickey      = pygame.image.load(os.path.join(base, 'mikkey.png')).convert_alpha()
 hand_l      = pygame.image.load(os.path.join(base, 'hand_left_centered.png')).convert_alpha()
 hand_r      = pygame.image.load(os.path.join(base, 'hand_right_centered.png')).convert_alpha()
 
@@ -66,6 +65,6 @@ while not done:
    pygame.display.flip()
    # limit FPS to 60 frames per second
    clock.tick(60)
-   
+
 # quit pygame properly
 pygame.quit()
