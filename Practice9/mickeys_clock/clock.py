@@ -1,70 +1,81 @@
-import pygame  # library for creating games and graphics
-import datetime  # module for getting current date and time
-import os  # module for working with file paths
+import pygame
+import datetime
+import os
 
 pygame.init()
-screen = pygame.display.set_mode((1200, 700))  # create a window (width=1200, height=700)
+screen = pygame.display.set_mode((1200, 700))
 WHITE = (255, 255, 255)
 
 base = r'C:\Users\Huawei\OneDrive\Desktop\PracticePP2\Practice9\mickeys_clock\images'
 
-# load images with alpha channel (transparency support)
-image_surface = pygame.image.load(os.path.join(base, 'clock.png')).convert_alpha()
-mickey      = pygame.image.load(os.path.join(base, 'mikkey.png')).convert_alpha()
-hand_l      = pygame.image.load(os.path.join(base, 'hand_left_centered.png')).convert_alpha()
-hand_r      = pygame.image.load(os.path.join(base, 'hand_right_centered.png')).convert_alpha()
+# загружаем изображения и сразу оптимизируем их с прозрачностью
+image_surface = pygame.image.load(os.path.join(base, 'clock.png')).convert_alpha()   # фон часов
+mickey        = pygame.image.load(os.path.join(base, 'mikkey.png')).convert_alpha()   # Микки
+hand_l        = pygame.image.load(os.path.join(base, 'hand_left_centerd.png')).convert_alpha()  # минутная стрелка
+hand_r        = pygame.image.load(os.path.join(base, 'hand_right_centered.png')).convert_alpha() # часовая стрелка
 
-# resize images to fit the screen design
-resized_image = pygame.transform.scale(image_surface, (800, 600))  # clock background
-res_mickey    = pygame.transform.scale(mickey, (350, 350))        # character image
-hand_l_base   = pygame.transform.scale(hand_l, (80, 80))          # minute hand base image
-hand_r_base   = pygame.transform.scale(hand_r, (100, 100))        # hour hand base image
+# изменяем размеры изображений
+resized_image = pygame.transform.scale(image_surface, (800, 600))  # фон
+res_mickey    = pygame.transform.scale(mickey, (350, 350))         # Микки
+hand_l_base   = pygame.transform.scale(hand_l, (100, 100))         # минутная стрелка
+hand_r_base   = pygame.transform.scale(hand_r, (100, 100))         # часовая стрелка
 
-clockc = (300, 170)  # unused variable (possible old center position)
-CLOCK_CENTER = (600, 320)  # center of the clock
-clock = pygame.time.Clock()  # object to control FPS (frame rate)
-done = False  # game loop control variable
+clockc = (300, 170)   # (не используется — можно удалить)
+CLOCK_CENTER = (600, 320)   # центр часов (где будет Микки)
+clock = pygame.time.Clock()   # объект для контроля FPS (кадров в секунду)
+done = False                  # флаг выхода из игры
 
 while not done:
-   for event in pygame.event.get():  # handle all events (keyboard, mouse, window)
-       if event.type == pygame.QUIT:  # if user closes the window
-           done = True  # exit the loop
 
-   # get current time
-   now = datetime.datetime.now()
-   h = now.hour % 12   # convert to 12-hour format
-   m = now.minute      # current minutes
-   s = now.second      # current seconds
+    # обработка событий (нажатия клавиш, закрытие окна и т.д.)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:   # если нажали "крестик"
+            done = True                # завершаем цикл
 
-   # calculate rotation angles for clock hands
-   minutes_angle = -(m * 6 + s * 0.1)   # 6° per minute + smooth movement from seconds
-   hours_angle   = -(h * 30 + m * 0.5)  # 30° per hour + smooth movement from minutes
+    # получаем текущее время
+    now = datetime.datetime.now()
+    h = now.hour % 12   # часы (в 12-часовом формате)
+    m = now.minute      # минуты
+    s = now.second      # секунды
 
-   # rotate clock hands
-   rotated_minutes = pygame.transform.rotate(hand_l_base, minutes_angle)
-   rotated_hours   = pygame.transform.rotate(hand_r_base, hours_angle)
-   # set the center position for rotated images
-   minutes_rect = rotated_minutes.get_rect(center=(600, 340))
-   hours_rect   = rotated_hours.get_rect(center=(600, 340))
+    # вычисляем угол поворота минутной стрелки
+    # 1 минута = 6 градусов (360/60)
+    # добавляем секунды для плавного движения
+    minutes_angle = -(m * 6 + s * 0.1)
 
-   # clear screen with white background
-   screen.fill(WHITE)
+    # вычисляем угол поворота часовой стрелки
+    # 1 час = 30 градусов (360/12)
+    # добавляем минуты для плавного движения
+    hours_angle = -(h * 30 + m * 0.5)
 
-   # draw clock background
-   image_rect = resized_image.get_rect()
-   image_rect.center = (600, 340)
-   screen.blit(resized_image, image_rect)
-   # draw Mickey image
-   mic_rect = res_mickey.get_rect(center=CLOCK_CENTER)
-   screen.blit(res_mickey, mic_rect)
-   # draw clock hands
-   screen.blit(rotated_hours, hours_rect)
-   screen.blit(rotated_minutes, minutes_rect)
+    # поворачиваем изображения стрелок
+    rotated_minutes = pygame.transform.rotate(hand_l_base, minutes_angle)
+    rotated_hours   = pygame.transform.rotate(hand_r_base, hours_angle)
 
-   # update display
-   pygame.display.flip()
-   # limit FPS to 60 frames per second
-   clock.tick(60)
+    # создаём прямоугольники (Rect) для позиционирования стрелок
+    # центр задаёт точку вращения
+    minutes_rect = rotated_minutes.get_rect(center=(650, 320))
+    hours_rect   = rotated_hours.get_rect(center=(620, 346))
 
-# quit pygame properly
+    # очищаем экран (заливаем белым цветом)
+    screen.fill(WHITE)
+
+    # рисуем фон часов
+    image_rect = resized_image.get_rect()
+    image_rect.center = (600, 340)
+    screen.blit(resized_image, image_rect)
+
+    # рисуем Микки в центре часов
+    mic_rect = res_mickey.get_rect(center=CLOCK_CENTER)
+    screen.blit(res_mickey, mic_rect)
+
+    # рисуем стрелки
+    screen.blit(rotated_hours, hours_rect)     # часовая
+    screen.blit(rotated_minutes, minutes_rect) # минутная
+
+    # обновляем экран (показываем всё нарисованное)
+    pygame.display.flip()
+    # ограничиваем FPS до 60 кадров в секунду
+    clock.tick(60)
+
 pygame.quit()
