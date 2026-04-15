@@ -10,9 +10,9 @@ base = r'C:\Users\Huawei\OneDrive\Desktop\PracticePP2\Practice9\mickeys_clock\im
 
 # загружаем изображения и сразу оптимизируем их с прозрачностью
 image_surface = pygame.image.load(os.path.join(base, 'clock.png')).convert_alpha()   # фон часов
-mickey        = pygame.image.load(os.path.join(base, 'mikkey.png')).convert_alpha()   # Микки
-hand_l        = pygame.image.load(os.path.join(base, 'hand_left_centerd.png')).convert_alpha()  # минутная стрелка
-hand_r        = pygame.image.load(os.path.join(base, 'hand_right_centered.png')).convert_alpha() # часовая стрелка
+mickey        = pygame.image.load(os.path.join(base, 'mickey.png')).convert_alpha()   # Микки
+hand_l        = pygame.image.load(os.path.join(base, 'hand_left.png')).convert_alpha()  # минутная стрелка
+hand_r        = pygame.image.load(os.path.join(base, 'hand_right.png')).convert_alpha() # часовая стрелка
 
 # изменяем размеры изображений
 resized_image = pygame.transform.scale(image_surface, (800, 600))  # фон
