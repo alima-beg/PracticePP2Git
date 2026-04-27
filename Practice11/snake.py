@@ -66,7 +66,7 @@ class Snake:
         for i in range(len(self.body) - 1, 0, -1):
             self.body[i].x = self.body[i - 1].x
             self.body[i].y = self.body[i - 1].y
-            
+
         # Move head in current direction
         self.body[0].x += self.dx
         self.body[0].y += self.dy

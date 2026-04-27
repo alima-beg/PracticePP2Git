@@ -11,11 +11,7 @@ def main():
     radius = 15 # Initial brush size
     mode = 'blue'
     points = []
-    # history stores every finished drawn object in creation order.
-    # Each entry is either:
-    #   ('stroke', pts, mode, radius)              – freehand or eraser line
-    #   ('figure', coords, mode, radius, d_mode)   – any shape
-    history = [] 
+    history = []
     figures = []
     drawing = True
     drawing_mode = 1     # 1=line, 2=rect, 3=circle, 4=square,
@@ -101,7 +97,6 @@ def main():
             # ---- Mouse button DOWN ----
             if event.type == pygame.MOUSEBUTTONDOWN:
                 if event.button == 1: # left click grows radius
-                    # Remember where the drag started for shape modes
                     if drawing_mode in FIGURE_MODES:
                         fig_start = mouse_pos
                     
@@ -131,8 +126,7 @@ def main():
                     if points:
                         history.append(('stroke', points.copy(), mode, radius))
                     points = []
-            
-            # ---- Mouse button UP: commit the finished object ----
+      
             if event.type == pygame.MOUSEBUTTONUP:
                 if event.button == 1:
                     if drawing_mode == 1 and points:

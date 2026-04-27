@@ -74,7 +74,7 @@ class Coin(pygame.sprite.Sprite):
         super().__init__()
         self.image = coin_image
         self.size = random.randint(1,3)
-        self.image = pygame.transform.scale(self.image, (30*(self.size*0.5), 30*(self.size*0.5)))
+        self.image = pygame.transform.scale(self.image, (int(30*(self.size*0.5)), int(30*(self.size*0.5))))
         self.rect = self.image.get_rect()
         self.generate_random_rect()
 
@@ -82,10 +82,10 @@ class Coin(pygame.sprite.Sprite):
         # random x, but keep it within screen width
         self.size = random.randint(1,3)
         self.image = coin_image
-        self.image = pygame.transform.scale(self.image, (30*(self.size*0.5), 30*(self.size*0.5))) # resize depending on the size of the coin
-        self.rect.left = random.randint(0, WIDTH - self.rect.w)
+        self.image = pygame.transform.scale(self.image, (int(30*(self.size*0.5)), int(30*(self.size*0.5)))) # resize depending on the size of the coin
+        self.rect.left = random.randint(0, width - self.rect.w)
         # fixed y near the bottom where the player moves
-        self.rect.top = random.randint(HEIGHT - 80, HEIGHT - 20)
+        self.rect.top = random.randint(height - 80, height - 20)
 
 running = True
 

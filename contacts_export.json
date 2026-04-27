@@ -1,0 +1,100 @@
+[
+  {
+    "id": 4,
+    "first_name": "Arman",
+    "last_name": "Seilov",
+    "email": null,
+    "birthday": "1970-04-25",
+    "group_name": "Family",
+    "phones": [
+      {
+        "phone": "+7-702-789-0123",
+        "type": "home"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "first_name": "Dinara",
+    "last_name": "Muratova",
+    "email": "dinara.m@mail.ru",
+    "birthday": "2001-12-07",
+    "group_name": "Other",
+    "phones": [
+      {
+        "phone": "+7-705-890-1234",
+        "type": "mobile"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "first_name": "Gulnur",
+    "last_name": "Akhmetova",
+    "email": "gulnara@bk.ru",
+    "birthday": "1995-06-05",
+    "group_name": "Family",
+    "phones": [
+      {
+        "phone": "+7-705-456-7890",
+        "type": "home"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "first_name": "Madina",
+    "last_name": "Tulegenova",
+    "email": "madina.t@gmail.com",
+    "birthday": "1998-09-30",
+    "group_name": "Friend",
+    "phones": [
+      {
+        "phone": "+7-701-678-9012",
+        "type": "mobile"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "first_name": "Nurlan",
+    "last_name": "Bekov",
+    "email": "nurlan.bekov@gmail.com",
+    "birthday": "1987-11-22",
+    "group_name": "Work",
+    "phones": [
+      {
+        "phone": "+7-702-345-6789",
+        "type": "work"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "first_name": "Samal",
+    "last_name": "Bekturova",
+    "email": "samal.b@gmail.com",
+    "birthday": "1993-02-28",
+    "group_name": "Friend",
+    "phones": [
+      {
+        "phone": "+7-701-012-3456",
+        "type": "mobile"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "first_name": "Yerlan",
+    "last_name": "Abenov",
+    "email": "yerlan.abenov@nu.edu.kz",
+    "birthday": "1990-07-13",
+    "group_name": "Work",
+    "phones": [
+      {
+        "phone": "+7-707-901-2345",
+        "type": "work"
+      }
+    ]
+  }
+]

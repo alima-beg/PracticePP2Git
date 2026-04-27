@@ -25,6 +25,10 @@ sound_crash = pygame.mixer.Sound('C:\\Users\\Huawei\\OneDrive\\Desktop\\Practice
 font = pygame.font.SysFont('Arial', 60)
 font_small = pygame.font.SysFont('Arial', 20)
 
+image_game_over = font.render('Game Over', True, 'black')
+image_game_over_rect = image_game_over.get_rect(center = (width // 2, height // 2)) # get_rect helps position text
+score = font_small.render('Score: ' + str(collected), True, 'black')
+score_rect = score.get_rect(center = (325, 10))
 
 class Player(pygame.sprite.Sprite):
     def __init__(self):
