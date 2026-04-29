@@ -1,7 +1,37 @@
 [
     {
+        "name": "Merey",
+        "score": 1590,
+        "distance": 743
+    },
+    {
+        "name": "Alikh",
+        "score": 624,
+        "distance": 259
+    },
+    {
         "name": "p1",
         "score": 485,
         "distance": 242
+    },
+    {
+        "name": "Alima",
+        "score": 455,
+        "distance": 141
+    },
+    {
+        "name": "Alikh",
+        "score": 144,
+        "distance": 72
+    },
+    {
+        "name": "Player 2",
+        "score": 117,
+        "distance": 58
+    },
+    {
+        "name": "Player 3",
+        "score": 58,
+        "distance": 29
     }
 ]

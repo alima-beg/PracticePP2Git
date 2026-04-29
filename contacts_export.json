@@ -61,11 +61,15 @@
     "last_name": "Bekov",
     "email": "nurlan.bekov@gmail.com",
     "birthday": "1987-11-22",
-    "group_name": "Work",
+    "group_name": "Name",
     "phones": [
       {
         "phone": "+7-702-345-6789",
         "type": "work"
+      },
+      {
+        "phone": "+7-705-445-6545",
+        "type": "home"
       }
     ]
   },

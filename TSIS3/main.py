@@ -130,18 +130,21 @@ while running:
             if event.type == SPAWN_ENEMY:
                 e = Enemy(settings["difficulty"])
                 e.speed += speed_boost
+                # Checks for collisions before placing the new enemy
                 if not pygame.sprite.spritecollideany(e, enemies) and not pygame.sprite.spritecollideany(e, obstacles):
                     all_sprites.add(e)
                     enemies.add(e)
             
             if event.type == SPAWN_OBSTACLE:
                 o = Obstacle()
+                # Checks for collisions before placing the new obstacle
                 if not pygame.sprite.spritecollideany(o, enemies) and not pygame.sprite.spritecollideany(o, obstacles):
                     all_sprites.add(o)
                     obstacles.add(o)
             
             if event.type == SPAWN_POWERUP:
                 p = PowerUp()
+                # Checks for collisions before placing the new powerup
                 if not pygame.sprite.spritecollideany(p, enemies) and not pygame.sprite.spritecollideany(p, obstacles):
                     all_sprites.add(p)
                     powerups.add(p)
@@ -167,6 +170,7 @@ while running:
     elif state == "PLAY":
         all_sprites.update()
         speed_boost = score // 500
+        # Calulates distance and score
         distance += (0.1 + (speed_boost * 0.02))
         score += 0.2 if not player.nitro_active else 0.5
         
@@ -174,7 +178,7 @@ while running:
         if not player.shield_active:
             if pygame.sprite.spritecollideany(player, enemies) or pygame.sprite.spritecollideany(player, obstacles):
                 if settings["sound"] and snd_crash: snd_crash.play()
-                if player.crashes_allowed > 0:
+                if player.crashes_allowed > 0: # Checks if the player still has “extra crashes” (lives/protection)
                     player.crashes_allowed -= 1
                     player.shield_active = True
                     player.powerup_timer = pygame.time.get_ticks() + 2000
@@ -201,7 +205,7 @@ while running:
         screen.fill((30, 30, 30))
         board = load_leaderboard()
         for i, entry in enumerate(board):
-            txt = f"{i+1}. {entry['name']} - {entry['score']} pts"
+            txt = f"{i+1}. {entry['name']} - {entry['score']} pts" # Creates a formatted text line. Example: 1. Alex - 1200 pts
             screen.blit(font.render(txt, True, (255,255,255)), (150, 50 + i*35))
         btn_back.draw(screen)
     elif state == "GAMEOVER":
